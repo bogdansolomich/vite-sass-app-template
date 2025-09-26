@@ -1,8 +1,8 @@
 @use "sass:math";
 @use "btn-scema" as vars with (
   $font-size: 10px,
-  $btn-color: black,
-  $btn-bgcolor: lightblue
+  $btn-color: rgb(207, 242, 6),
+  $btn-bgcolor: hotpink
 );
 
 .small-btn {
