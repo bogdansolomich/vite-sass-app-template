@@ -23,3 +23,9 @@ body {
      -moz-box-align: center;
           align-items: center;
 }
+
+.small-btn {
+  font-size: 10px;
+  color: rgb(207, 242, 6);
+  background-color: hotpink;
+}
