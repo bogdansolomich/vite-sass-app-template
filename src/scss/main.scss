@@ -1,11 +1,5 @@
-// @use "utilities";
-// @use "base";
-// @use "layout";
-// @use "components";
+@use "/src/scss/utils/functions";
+@use "base";
 
-@use "--examples--/lesson-05/variables";
-
-/*==END==*/
-@use "--examples--/lesson-05/base";
-
-@use "--examples--/lesson-05/button.scss";
+@use "layout";
+@use "components";

@@ -1,0 +1,17 @@
+@use "../utils/placeholders";
+@use "../utils/variables" as var;
+@use "../utils/functions" as fn;
+@use "../utils/mixins" as mx;
+
+.notification {
+  flex-shrink: 0; // Забороняє зменшення елемента при нестачі місця
+
+  display: block; // Блочне відображення
+  min-width: 28px; // Мінімальна ширина
+  height: 20px; // Фіксована висота
+  padding: 0 10px; // Внутрішні відступи: 0 зверху/знизу, 10px зліва/справа
+
+  color: fn.get-color("light-primary"); // Світлий колір тексту
+  border-radius: 12px; // Закруглення кутів (створює oval/капсульну форму)
+  background-color: fn.get-color("danger"); // Червоний/небезпечний колір фону
+}

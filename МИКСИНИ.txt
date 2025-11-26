@@ -1,0 +1,50 @@
+@mixin nemamix($width, $height)
+{width: $width;
+ height: $height;
+}
+
+%dererer {
+  color: #fff;
+  font-size: 24px
+}
+
+.anters {
+  @include nemamix (230px, 50px);
+  @extend %dererer;
+  border-radius: 2px solid #ff0000;
+}
+
+
+@mixin position($height, $color, $margin-right: 20px, $margin-left: $margin-right, $width: 500px ) {
+  z-index: $height;
+  width: $width;
+  height: $height;
+  color: $color;
+ margin: $margin-right $margin-left;
+}
+
+.sambuka {
+  @include position(40px, #fff, $margin-left: 20px, $margin-right: 400px);
+}
+
+
+@mixin btn-size($args...){
+  @debug $args;
+}
+
+@include btn-size('.first', '.second', '.three')
+
+
+
+@use "sass:meta";
+
+@mixin btn-type($types...) {
+  @each $name, $color in meta.keywords($types) {
+    .btn-#{$name} {
+      border: 2px solid $color;
+      color: $color;
+    }
+  }
+}
+
+@include btn-type($succes: lightblue, $error: orange, $info: tomato);

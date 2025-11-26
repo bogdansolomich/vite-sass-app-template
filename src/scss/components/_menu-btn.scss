@@ -1,0 +1,50 @@
+@use "../utils/placeholders";
+@use "../utils/variables" as var;
+@use "../utils/functions" as fn;
+@use "../utils/mixins" as mx;
+
+.menu-btn {
+  @extend %details; // підтягує стилі з placeholder %details
+
+  display: inline-flex; // кнопка поводиться як flex-контейнер, але inline
+  align-items: center; // вирівнює елементи по центру вертикально
+  gap: 10px; // відстань між елементами всередині кнопки
+
+  margin-right: auto; // зрушує кнопку максимально вліво
+
+  color: fn.get-color("light-primary");
+  // отримує колір із системи темізації за ключем 'light-primary'
+
+  @include mx.mq("lg") {
+    display: none;
+    // на великих екранах (large breakpoint) кнопка ховається
+  }
+
+  &-icon {
+    fill: fn.get-color("current");
+    // колір для svg-іконки через тему
+  }
+
+  .sidebar & {
+    // цей блок спрацьовує коли .menu-btn знаходиться всередині .sidebar
+    // селектор стає: .sidebar .menu-btn
+
+    @include mx.ease("slow", opacity, transform);
+    // додає transition з кастомним повільним easing
+    // анімуються opacity і transform
+
+    transition-delay: 800ms, 600ms;
+    // затримка для першої та другої анімованої властивості
+
+    position: absolute; // абсолютне позиціонування всередині сайдбара
+    top: 16px; // відступ зверху
+    right: -36px; // зміщення вправо за межі елемента (виступає)
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+
+  .sidebar.is-open & {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}

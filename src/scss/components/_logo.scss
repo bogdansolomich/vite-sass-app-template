@@ -1,0 +1,21 @@
+@use "../utils/placeholders";
+@use "../utils/variables" as var;
+@use "../utils/functions" as fn;
+@use "../utils/mixins" as mx;
+
+.logo {
+  // Розширюємо стилі з placeholder селектора %main-title
+  @extend %main-title;
+
+  // Flexbox для горизонтального розташування елементів
+  display: flex;
+  align-items: center; // Вертикальне вирівнювання по центру
+  gap: 8px; // Відстань між дочірніми елементами
+  padding: 8px 20px; // Внутрішні відступи: 8px зверху/знизу, 20px зліва/справа
+  color: fn.get-color("accent-primary"); // Колір тексту з функції get-color
+
+  // Медіа-запит для екранів шириною 'lg' (large)
+  @include mx.mq("lg") {
+    padding: 16px 20px; // Збільшуємо вертикальні відступи до 16px
+  }
+}
